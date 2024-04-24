@@ -51,6 +51,7 @@ def init_database(file):
 
 def help_():
     output = '''
+The following commands are available:
     Help     - show available commands;
     Exit     - exit the application, without purchasing anything;
     Brands   - list the brands/companies available;
@@ -178,6 +179,7 @@ def checkout_(cart):
         print(i)
         price += i.get_price()
     print(f'Summary: {len(cart)} items for a total cost of ${price:.2f}')
+    print('\nThanks for shopping with us! Please come back soon.')
 
 
 
@@ -192,7 +194,7 @@ def main():
     
     print(f'Creating product database from file: {file_name}')
     database = init_database(file_name)
-    print('\nWelcome to the online shopping app. We have a large selection of cheeses available from many popular brands. Happy shopping!\n')
+    print('\nWelcome to the online shopping app. We have a large selection of cheeses available from many popular brands. Happy shopping!')
     cart = []
 
     while True:
@@ -217,7 +219,7 @@ def main():
             checkout_(cart)
             return
         else:
-            print(f'\nNo command named {command}')
+            print(f"\nSorry, your command wasn't recognized. Try again.")
 
 
         
